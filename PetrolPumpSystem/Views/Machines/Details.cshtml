@@ -1,0 +1,35 @@
+﻿@model PetrolPumpSystem.Models.Machine
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Machine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MachineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MachineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProduct.PName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProduct.PName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MachinId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

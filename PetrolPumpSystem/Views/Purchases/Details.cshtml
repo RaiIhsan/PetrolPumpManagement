@@ -1,0 +1,75 @@
+﻿@model PetrolPumpSystem.Models.tblPurchase
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblPurchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TankerNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankerNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProduct.PName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProduct.PName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSupplier.SupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSupplier.SupName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PurchId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

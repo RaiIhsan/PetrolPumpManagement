@@ -1,0 +1,59 @@
+﻿@model PetrolPumpSystem.Models.tblProduct
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Fuel Details</h4>
+            <h4 style="float:right;margin-right:2em;">Total Fuels: @Session["totalfuels"]</h4>
+        </div>
+    </div>
+</div>
+<br />
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fuel::
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PName)
+        </dd>
+
+        <dt>
+            Discription:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PDetail)
+        </dd>
+
+        <dt>
+            Sale Price:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalePrice)
+        </dd>
+
+        <dt>
+            Date:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PDate)
+        </dd>
+
+    </dl>
+</div>
+<p class="subPageMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

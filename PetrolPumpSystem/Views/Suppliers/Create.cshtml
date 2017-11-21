@@ -1,0 +1,77 @@
+﻿@model PetrolPumpSystem.Models.tblSupplier
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Add new supplier</h4>
+            <h4 style="float:right;margin-right:2em;">Total Suppliers: @Session["totalSuppliers"]</h4>
+
+        </div>
+    </div>
+</div>
+<br />
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupName,"Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SupName, new { htmlAttributes = new { @class = "form-control",required=true } })
+                @Html.ValidationMessageFor(model => model.SupName, "", new { @class = "text-danger" })
+            </div>
+       
+            @Html.LabelFor(model => model.SupMobile,"Mobile", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SupMobile, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.SupMobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupPhone,"Phone", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SupPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SupPhone, "", new { @class = "text-danger" })
+            </div>
+       
+            @Html.LabelFor(model => model.SupAddress,"Address", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.SupAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SupAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="subPageMargin">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+        $(document).ready(function () {
+            $('textarea').addClass('form-control');
+            $('.text-box').addClass('form-control');
+
+        });
+</script>
+}

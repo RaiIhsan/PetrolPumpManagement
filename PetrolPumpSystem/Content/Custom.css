@@ -1,0 +1,205 @@
+﻿
+body{margin-top:50px;
+    background-image:url("../Images/gray.jpg");
+
+}
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+.panel-body{
+    background-color:whitesmoke;
+}
+.Navigation{
+     width:97%;
+    margin-left:auto;
+    margin-right:auto;
+    /*background-color:#722c44;*/
+    background-color:rgb(70,130,180);
+
+    color:white;
+  
+}
+.Navigation li {
+    color:white;
+}
+#abc a{
+    /*font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+    
+    text-decoration:none;
+    /*font-weight:bold;*/
+}
+.MAIN{
+    width:97%;
+    margin-left:auto;
+    margin-right:auto;
+  
+}
+.menu{
+     padding-right:0;
+    margin-right:0;
+}
+.account{
+    list-style:none;
+}
+
+.account ul{
+    display:none;
+    list-style-type:none;
+
+
+}
+.account a{
+    color:white;
+    margin-right:1em;
+}
+.account a:hover{
+    color:azure ;
+    
+  
+}
+
+.account:hover> ul{
+    display:block;
+    transition:none;
+    position:absolute;
+    /*background-color:rgba(25, 21, 21, 0.82);*/
+    /*background-color:rgba(217, 207, 200, 0.87);*/
+    background-color:white;
+    width:118%;
+    height:150%;
+
+ 
+}
+    .account ul li a{
+        text-decoration:none;
+        color:black;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .account ul li a:hover{
+        text-decoration:none;
+        color:cornflowerblue;
+    }
+
+.well{
+    padding:0;
+    margin:0;
+    border-style:none;
+}
+.subPageMargin{
+    margin-left:2em;
+}
+/*.nonpading{
+
+      padding-left:0;
+    margin-left:0;
+}*/
+
+   
+
+
+     .SubPageHeader{
+    /*background-color:rgba(216, 32, 32, 0.66);*/
+    background-color:rgb(70,130,180);
+    
+    color:white;
+    width:100%;
+     
+}
+     .SubPageHeader h4{
+         margin-left:1em;
+     }
+
+
+     .tblHeader{
+         background-color:#4c4c4c;
+         color:white;
+     }
+     .tblHeader th{
+         text-align:center;
+     }
+     .tblbody td{
+         text-align:center;
+     }
+     .search{
+         float:right;
+         margin-right:1.2em;
+     }
+
+     .DashboardValues{
+         width:100%;
+         margin-top:0.8em;
+         margin-left:auto;
+         margin-right:auto;
+        padding:1em;
+     }
+     .box1{
+         height:8em;
+         background-color:#0EEC18;
+         margin-bottom:.2em;
+         width:23%;
+         float:left;
+         margin-left:1.5%;
+
+     }
+       .box2{
+         height:8em;
+         background-color:#1B3AFF;
+         margin-bottom:.2em;
+         width:23%;
+         float:left;
+         margin-left:1.5%;
+
+     }
+            .box3{
+         height:8em;
+         background-color:#FFC300;
+         margin-bottom:.2em;
+         width:23%;
+         float:left;
+         margin-left:1.5%;
+         
+
+     }
+              .box4{
+         height:8em;
+         background-color:#007303   ;
+         margin-bottom:.2em;
+         width:23%;
+         float:left;
+         margin-left:1.5%;
+        
+
+     }
+     .DashboardValues h4{
+        
+        /*padding-top:2em;*/
+        padding:1em;
+        color:white;
+        font-weight:bold;
+     }
+btnkink{
+    width:100%;
+    padding:20em;
+}
+     .submenu{
+
+          height:15%;
+        /*background-color:#007303;*/
+       
+         margin-bottom:1em;
+         margin-top:2em;
+         width:25%;
+         float:left;
+         margin-left:1.5%;
+         align-self:center;
+     }
+      .my-class{
+         color:white;
+         text-decoration:none;
+        
+     }
+       .my-class { color: #333333 }
+active { color: #666666 }
+a.my-class:link { color: #999999 }
+a.my-class:visited { color: #CCCCCC }

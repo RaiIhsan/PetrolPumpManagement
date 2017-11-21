@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PetrolPumpSystem.Models.Machine>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Machines</h4>
+            <h4 style="float:right;margin-right:2em;">Total Suppliers: @Session["totalSuppliers"]</h4>
+        </div>
+    </div>
+</div>
+<br />
+<p class="subPageMargin">
+    @*@Html.ActionLink("Add New", "Create")*@
+    <input type="button" class="btn btn-success" value="Add New" onclick="location.href='@Url.Action("Create", "Machines")'" />
+
+</p>
+<div class="container table-responsive">
+    <table class="table table-responsive table-striped " id="myTable">
+        <thead>
+            <tr class="tblHeader">
+                <th>
+                    Machine
+                </th>
+                <th>
+                    Fuel
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="tblbody">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MachineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblProduct.PName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MachinId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MachinId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MachinId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>

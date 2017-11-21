@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetrolPumpDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblCompanyInfo">
+    <Key>
+      <PropertyRef Name="CompId" />
+    </Key>
+    <Property Name="CompId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="PetrolPumpDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblCompanyInfoes" EntityType="Self.tblCompanyInfo" />
+    <EntitySet Name="tblSuppliers" EntityType="PetrolPumpDBModel.tblSupplier" />
+    <EntitySet Name="Machines" EntityType="PetrolPumpDBModel.Machine" />
+    <EntitySet Name="sysdiagrams" EntityType="PetrolPumpDBModel.sysdiagram" />
+    <EntitySet Name="tblBorrowSales" EntityType="PetrolPumpDBModel.tblBorrowSale" />
+    <EntitySet Name="tblCustomers" EntityType="PetrolPumpDBModel.tblCustomer" />
+    <EntitySet Name="tblNetSales" EntityType="PetrolPumpDBModel.tblNetSale" />
+    <EntitySet Name="tblPayments" EntityType="PetrolPumpDBModel.tblPayment" />
+    <EntitySet Name="tblVehcles" EntityType="PetrolPumpDBModel.tblVehcle" />
+    <AssociationSet Name="FK_tblNetSale_Machine" Association="PetrolPumpDBModel.FK_tblNetSale_Machine">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="tblNetSale" EntitySet="tblNetSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPayment_tblCustomer" Association="PetrolPumpDBModel.FK_tblPayment_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomers" />
+      <End Role="tblPayment" EntitySet="tblPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVehcle_tblCustomer" Association="PetrolPumpDBModel.FK_tblVehcle_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomers" />
+      <End Role="tblVehcle" EntitySet="tblVehcles" />
+    </AssociationSet>
+    <EntitySet Name="tblProducts" EntityType="PetrolPumpDBModel.tblProduct" />
+    <AssociationSet Name="FK_Machine_tblProduct" Association="PetrolPumpDBModel.FK_Machine_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="Machine" EntitySet="Machines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrowSale_tblCustomer" Association="PetrolPumpDBModel.FK_tblBorrowSale_tblCustomer">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblBorrowSale" EntitySet="tblBorrowSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrowSale_tblProduct" Association="PetrolPumpDBModel.FK_tblBorrowSale_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblBorrowSale" EntitySet="tblBorrowSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNetSale_tblProduct" Association="PetrolPumpDBModel.FK_tblNetSale_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblNetSale" EntitySet="tblNetSales" />
+    </AssociationSet>
+    <EntitySet Name="tblMachineReadings" EntityType="PetrolPumpDBModel.tblMachineReading" />
+    <EntitySet Name="tblPurchases" EntityType="PetrolPumpDBModel.tblPurchase" />
+    <EntitySet Name="tblStocks" EntityType="PetrolPumpDBModel.tblStock" />
+    <AssociationSet Name="FK_tblMachineReading_Machine" Association="PetrolPumpDBModel.FK_tblMachineReading_Machine">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="tblMachineReading" EntitySet="tblMachineReadings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPurchase_tblProduct" Association="PetrolPumpDBModel.FK_tblPurchase_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblPurchase" EntitySet="tblPurchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStock_tblProduct" Association="PetrolPumpDBModel.FK_tblStock_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblStock" EntitySet="tblStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPurchase_tblSupplier" Association="PetrolPumpDBModel.FK_tblPurchase_tblSupplier">
+      <End Role="tblSupplier" EntitySet="tblSuppliers" />
+      <End Role="tblPurchase" EntitySet="tblPurchases" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="SupId" />
+    </Key>
+    <Property Name="SupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPurchases" Relationship="PetrolPumpDBModel.FK_tblPurchase_tblSupplier" FromRole="tblSupplier" ToRole="tblPurchase" />
+  </EntityType>
+  <EntityType Name="Machine">
+    <Key>
+      <PropertyRef Name="MachinId" />
+    </Key>
+    <Property Name="MachinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MachineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PId" Type="Int32" />
+    <NavigationProperty Name="tblNetSales" Relationship="PetrolPumpDBModel.FK_tblNetSale_Machine" FromRole="Machine" ToRole="tblNetSale" />
+    <NavigationProperty Name="tblProduct" Relationship="PetrolPumpDBModel.FK_Machine_tblProduct" FromRole="Machine" ToRole="tblProduct" />
+    <NavigationProperty Name="tblMachineReadings" Relationship="PetrolPumpDBModel.FK_tblMachineReading_Machine" FromRole="Machine" ToRole="tblMachineReading" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblBorrowSale">
+    <Key>
+      <PropertyRef Name="BorrowSId" />
+    </Key>
+    <Property Name="BorrowSId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PId" Type="Int32" />
+    <Property Name="BQuantity" Type="Int32" />
+    <Property Name="BRate" Type="Double" />
+    <Property Name="Recieved" Type="Double" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="BDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblProduct" Relationship="PetrolPumpDBModel.FK_tblBorrowSale_tblCustomer" FromRole="tblBorrowSale" ToRole="tblProduct" />
+    <NavigationProperty Name="tblProduct1" Relationship="PetrolPumpDBModel.FK_tblBorrowSale_tblProduct" FromRole="tblBorrowSale" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustId" />
+    </Key>
+    <Property Name="CustId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustCNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPayments" Relationship="PetrolPumpDBModel.FK_tblPayment_tblCustomer" FromRole="tblCustomer" ToRole="tblPayment" />
+    <NavigationProperty Name="tblVehcles" Relationship="PetrolPumpDBModel.FK_tblVehcle_tblCustomer" FromRole="tblCustomer" ToRole="tblVehcle" />
+  </EntityType>
+  <EntityType Name="tblNetSale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PId" Type="Int32" Nullable="false" />
+    <Property Name="MachineId" Type="Int32" />
+    <Property Name="SaleQuantity" Type="Int32" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="TotalAmount" Type="Double" />
+    <Property Name="PaidAmount" Type="Double" />
+    <Property Name="PendingAmount" Type="Double" />
+    <NavigationProperty Name="Machine" Relationship="PetrolPumpDBModel.FK_tblNetSale_Machine" FromRole="tblNetSale" ToRole="Machine" />
+    <NavigationProperty Name="tblProduct" Relationship="PetrolPumpDBModel.FK_tblNetSale_tblProduct" FromRole="tblNetSale" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblPayment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="PayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaidAmount" Type="Double" />
+    <Property Name="AmountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaidDate" Type="DateTime" Precision="3" />
+    <Property Name="CustId" Type="Int32" />
+    <NavigationProperty Name="tblCustomer" Relationship="PetrolPumpDBModel.FK_tblPayment_tblCustomer" FromRole="tblPayment" ToRole="tblCustomer" />
+  </EntityType>
+  <EntityType Name="tblVehcle">
+    <Key>
+      <PropertyRef Name="VId" />
+    </Key>
+    <Property Name="VId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustId" Type="Int32" />
+    <NavigationProperty Name="tblCustomer" Relationship="PetrolPumpDBModel.FK_tblVehcle_tblCustomer" FromRole="tblVehcle" ToRole="tblCustomer" />
+  </EntityType>
+  <Association Name="FK_tblNetSale_Machine">
+    <End Type="PetrolPumpDBModel.Machine" Role="Machine" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblNetSale" Role="tblNetSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="MachinId" />
+      </Principal>
+      <Dependent Role="tblNetSale">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPayment_tblCustomer">
+    <End Type="PetrolPumpDBModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblPayment" Role="tblPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustId" />
+      </Principal>
+      <Dependent Role="tblPayment">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVehcle_tblCustomer">
+    <End Type="PetrolPumpDBModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblVehcle" Role="tblVehcle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustId" />
+      </Principal>
+      <Dependent Role="tblVehcle">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="PId" />
+    </Key>
+    <Property Name="PId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Double" />
+    <Property Name="PDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Machines" Relationship="PetrolPumpDBModel.FK_Machine_tblProduct" FromRole="tblProduct" ToRole="Machine" />
+    <NavigationProperty Name="tblBorrowSales" Relationship="PetrolPumpDBModel.FK_tblBorrowSale_tblCustomer" FromRole="tblProduct" ToRole="tblBorrowSale" />
+    <NavigationProperty Name="tblBorrowSales1" Relationship="PetrolPumpDBModel.FK_tblBorrowSale_tblProduct" FromRole="tblProduct" ToRole="tblBorrowSale" />
+    <NavigationProperty Name="tblNetSales" Relationship="PetrolPumpDBModel.FK_tblNetSale_tblProduct" FromRole="tblProduct" ToRole="tblNetSale" />
+    <NavigationProperty Name="tblPurchases" Relationship="PetrolPumpDBModel.FK_tblPurchase_tblProduct" FromRole="tblProduct" ToRole="tblPurchase" />
+    <NavigationProperty Name="tblStocks" Relationship="PetrolPumpDBModel.FK_tblStock_tblProduct" FromRole="tblProduct" ToRole="tblStock" />
+  </EntityType>
+  <Association Name="FK_Machine_tblProduct">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.Machine" Role="Machine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrowSale_tblCustomer">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblBorrowSale" Role="tblBorrowSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblBorrowSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrowSale_tblProduct">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblBorrowSale" Role="tblBorrowSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblBorrowSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNetSale_tblProduct">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="1" />
+    <End Type="PetrolPumpDBModel.tblNetSale" Role="tblNetSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblNetSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblMachineReading">
+    <Key>
+      <PropertyRef Name="MReadingId" />
+    </Key>
+    <Property Name="MReadingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartReading" Type="Double" />
+    <Property Name="EndingReading" Type="Double" />
+    <Property Name="ReadingDate" Type="DateTime" Precision="3" />
+    <Property Name="MachineId" Type="Int32" />
+    <NavigationProperty Name="Machine" Relationship="PetrolPumpDBModel.FK_tblMachineReading_Machine" FromRole="tblMachineReading" ToRole="Machine" />
+  </EntityType>
+  <EntityType Name="tblPurchase">
+    <Key>
+      <PropertyRef Name="PurchId" />
+    </Key>
+    <Property Name="PurchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupId" Type="Int32" Nullable="false" />
+    <Property Name="PId" Type="Int32" Nullable="false" />
+    <Property Name="TankerNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PurchQuantity" Type="Double" Nullable="false" />
+    <Property Name="PurchPrice" Type="Double" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PurchDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblProduct" Relationship="PetrolPumpDBModel.FK_tblPurchase_tblProduct" FromRole="tblPurchase" ToRole="tblProduct" />
+    <NavigationProperty Name="tblSupplier" Relationship="PetrolPumpDBModel.FK_tblPurchase_tblSupplier" FromRole="tblPurchase" ToRole="tblSupplier" />
+  </EntityType>
+  <EntityType Name="tblStock">
+    <Key>
+      <PropertyRef Name="StId" />
+    </Key>
+    <Property Name="StId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PId" Type="Int32" />
+    <Property Name="StQuantity" Type="Double" />
+    <Property Name="StRate" Type="Double" />
+    <Property Name="StDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblProduct" Relationship="PetrolPumpDBModel.FK_tblStock_tblProduct" FromRole="tblStock" ToRole="tblProduct" />
+  </EntityType>
+  <Association Name="FK_tblMachineReading_Machine">
+    <End Type="PetrolPumpDBModel.Machine" Role="Machine" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblMachineReading" Role="tblMachineReading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="MachinId" />
+      </Principal>
+      <Dependent Role="tblMachineReading">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPurchase_tblProduct">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="1" />
+    <End Type="PetrolPumpDBModel.tblPurchase" Role="tblPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblPurchase">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStock_tblProduct">
+    <End Type="PetrolPumpDBModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="PetrolPumpDBModel.tblStock" Role="tblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblStock">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPurchase_tblSupplier">
+    <End Type="PetrolPumpDBModel.tblSupplier" Role="tblSupplier" Multiplicity="1" />
+    <End Type="PetrolPumpDBModel.tblPurchase" Role="tblPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSupplier">
+        <PropertyRef Name="SupId" />
+      </Principal>
+      <Dependent Role="tblPurchase">
+        <PropertyRef Name="SupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

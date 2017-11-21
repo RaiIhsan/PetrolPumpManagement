@@ -1,0 +1,63 @@
+﻿@model PetrolPumpSystem.Models.tblCompanyInfo
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Dashboard</h4>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row DashboardValues">
+
+    <div class="box4"><h4>Total Suppliers: @Session["totalSuppliers"]</h4></div>
+        <div class="box1"><h4>Total Fuels: @Session["totalfuels"]</h4></div>
+        <div class="box2"><h4>Total Income</h4></div>
+        <div class="box3"><h4>Total Income</h4></div>
+</div>
+<div class="row DashboardValues">
+    <div class="box1"><h4>Total Income</h4></div>
+    <div class="box2"><h4>Total Income</h4></div>
+    <div class="box3"><h4>Total Income</h4></div>
+    <div class="box4"><h4>Total Income</h4></div>
+</div>
+
+@section Scripts{
+
+<script type="text/javascript">
+
+    $(".box1").hover(function(){
+        $(this).animate({ opacity: '0.9' });
+    }, function(){
+        $(this).animate({opacity:'1'});
+    });
+    $(".box2").hover(function () {
+        $(this).animate({ opacity: '0.9' });
+    }, function () {
+        $(this).animate({ opacity: '1' });
+    });
+    $(".box3").hover(function () {
+        $(this).animate({ opacity: '0.9' });
+    }, function () {
+        $(this).animate({ opacity: '1' });
+    });
+    $(".box4").hover(function () {
+        $(this).animate({ opacity: '0.9' });
+    }, function () {
+        $(this).animate({ opacity: '1' });
+    });
+
+    </script>
+
+
+    }
+
+
+
+
+

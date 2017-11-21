@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PetrolPumpSystem.Models.tblCompanyInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompLogo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompLogo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompId })
+        </td>
+    </tr>
+}
+
+</table>

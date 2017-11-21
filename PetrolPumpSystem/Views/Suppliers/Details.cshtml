@@ -1,0 +1,60 @@
+﻿@model PetrolPumpSystem.Models.tblSupplier
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Supplier Details</h4>
+            <h4 style="float:right;margin-right:2em;">Total Suppliers: @Session["totalSuppliers"]</h4>
+
+        </div>
+    </div>
+</div>
+<br />
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupName)
+        </dd>
+
+        <dt>
+            Mobile:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupMobile)
+        </dd>
+
+        <dt>
+            Phone:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupPhone)
+        </dd>
+
+        <dt>
+            Address:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupAddress)
+        </dd>
+
+    </dl>
+</div>
+<p class="subPageMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

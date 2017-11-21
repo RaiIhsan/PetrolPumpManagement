@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PetrolPumpSystem.Models.tblStock>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Stock</h4> 
+        </div>
+    </div>
+</div>
+<br />
+<div class="container table-responsive">
+    <table class="table table-responsive table-striped " id="myTable">
+        <thead>
+            <tr class="tblHeader">
+                <th>
+                    Fuel
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Updated On
+                </th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="tblbody">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblProduct.PName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.StId }, new {@class="btn btn-primary btn-sm" }) 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>

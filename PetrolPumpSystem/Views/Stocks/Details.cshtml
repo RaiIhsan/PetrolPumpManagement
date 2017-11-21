@@ -1,0 +1,50 @@
+﻿@model PetrolPumpSystem.Models.tblStock
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblStock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fuel:
+        </dt>
+        <dd>
+            @Html.DisplayNameFor(model => model.tblProduct.PName)
+        </dd>
+
+        <dt>
+            Quantity:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StQuantity)
+
+           
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StDate)
+        </dd>
+
+        <dt>
+        </dt>
+
+        <dd>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

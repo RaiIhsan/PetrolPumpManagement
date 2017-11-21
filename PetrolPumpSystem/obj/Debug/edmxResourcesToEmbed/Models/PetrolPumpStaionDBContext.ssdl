@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetrolPumpDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Machine">
+    <Key>
+      <PropertyRef Name="MachinId" />
+    </Key>
+    <Property Name="MachinId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MachineName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PId" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblBorrowSale">
+    <Key>
+      <PropertyRef Name="BorrowSId" />
+    </Key>
+    <Property Name="BorrowSId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PId" Type="int" />
+    <Property Name="BQuantity" Type="int" />
+    <Property Name="BRate" Type="float" />
+    <Property Name="Recieved" Type="float" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustId" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="BDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblCompanyInfo">
+    <Key>
+      <PropertyRef Name="CompId" />
+    </Key>
+    <Property Name="CompId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompAddress" Type="nvarchar(max)" />
+    <Property Name="CompLogo" Type="image" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustId" />
+    </Key>
+    <Property Name="CustId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustCNIC" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblMachineReading">
+    <Key>
+      <PropertyRef Name="MReadingId" />
+    </Key>
+    <Property Name="MReadingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartReading" Type="float" />
+    <Property Name="EndingReading" Type="float" />
+    <Property Name="ReadingDate" Type="datetime" />
+    <Property Name="MachineId" Type="int" />
+  </EntityType>
+  <EntityType Name="tblNetSale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PId" Type="int" Nullable="false" />
+    <Property Name="MachineId" Type="int" />
+    <Property Name="SaleQuantity" Type="int" />
+    <Property Name="SalePrice" Type="float" />
+    <Property Name="TotalAmount" Type="float" />
+    <Property Name="PaidAmount" Type="float" />
+    <Property Name="PendingAmount" Type="float" />
+  </EntityType>
+  <EntityType Name="tblPayment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="PayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaidAmount" Type="float" />
+    <Property Name="AmountType" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaidDate" Type="datetime" />
+    <Property Name="CustId" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="PId" />
+    </Key>
+    <Property Name="PId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PDetail" Type="nvarchar(max)" />
+    <Property Name="SalePrice" Type="float" />
+    <Property Name="PDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPurchase">
+    <Key>
+      <PropertyRef Name="PurchId" />
+    </Key>
+    <Property Name="PurchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupId" Type="int" Nullable="false" />
+    <Property Name="PId" Type="int" Nullable="false" />
+    <Property Name="TankerNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PurchQuantity" Type="float" Nullable="false" />
+    <Property Name="PurchPrice" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="PurchDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblStock">
+    <Key>
+      <PropertyRef Name="StId" />
+    </Key>
+    <Property Name="StId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PId" Type="int" />
+    <Property Name="StQuantity" Type="float" />
+    <Property Name="StRate" Type="float" />
+    <Property Name="StDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="SupId" />
+    </Key>
+    <Property Name="SupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblVehcle">
+    <Key>
+      <PropertyRef Name="VId" />
+    </Key>
+    <Property Name="VId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="VType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Machine_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="Machine" Type="Self.Machine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrowSale_tblCustomer">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblBorrowSale" Type="Self.tblBorrowSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblBorrowSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrowSale_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblBorrowSale" Type="Self.tblBorrowSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblBorrowSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMachineReading_Machine">
+    <End Role="Machine" Type="Self.Machine" Multiplicity="0..1" />
+    <End Role="tblMachineReading" Type="Self.tblMachineReading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="MachinId" />
+      </Principal>
+      <Dependent Role="tblMachineReading">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNetSale_Machine">
+    <End Role="Machine" Type="Self.Machine" Multiplicity="0..1" />
+    <End Role="tblNetSale" Type="Self.tblNetSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="MachinId" />
+      </Principal>
+      <Dependent Role="tblNetSale">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNetSale_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblNetSale" Type="Self.tblNetSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblNetSale">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPayment_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustId" />
+      </Principal>
+      <Dependent Role="tblPayment">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPurchase_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblPurchase" Type="Self.tblPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblPurchase">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPurchase_tblSupplier">
+    <End Role="tblSupplier" Type="Self.tblSupplier" Multiplicity="1" />
+    <End Role="tblPurchase" Type="Self.tblPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSupplier">
+        <PropertyRef Name="SupId" />
+      </Principal>
+      <Dependent Role="tblPurchase">
+        <PropertyRef Name="SupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStock_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblStock" Type="Self.tblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="tblStock">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVehcle_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblVehcle" Type="Self.tblVehcle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustId" />
+      </Principal>
+      <Dependent Role="tblVehcle">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PetrolPumpDBModelStoreContainer">
+    <EntitySet Name="Machine" EntityType="Self.Machine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBorrowSale" EntityType="Self.tblBorrowSale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCompanyInfo" EntityType="Self.tblCompanyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMachineReading" EntityType="Self.tblMachineReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNetSale" EntityType="Self.tblNetSale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPayment" EntityType="Self.tblPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPurchase" EntityType="Self.tblPurchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStock" EntityType="Self.tblStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSupplier" EntityType="Self.tblSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVehcle" EntityType="Self.tblVehcle" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Machine_tblProduct" Association="Self.FK_Machine_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="Machine" EntitySet="Machine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrowSale_tblCustomer" Association="Self.FK_tblBorrowSale_tblCustomer">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblBorrowSale" EntitySet="tblBorrowSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrowSale_tblProduct" Association="Self.FK_tblBorrowSale_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblBorrowSale" EntitySet="tblBorrowSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMachineReading_Machine" Association="Self.FK_tblMachineReading_Machine">
+      <End Role="Machine" EntitySet="Machine" />
+      <End Role="tblMachineReading" EntitySet="tblMachineReading" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNetSale_Machine" Association="Self.FK_tblNetSale_Machine">
+      <End Role="Machine" EntitySet="Machine" />
+      <End Role="tblNetSale" EntitySet="tblNetSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNetSale_tblProduct" Association="Self.FK_tblNetSale_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblNetSale" EntitySet="tblNetSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPayment_tblCustomer" Association="Self.FK_tblPayment_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblPayment" EntitySet="tblPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPurchase_tblProduct" Association="Self.FK_tblPurchase_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblPurchase" EntitySet="tblPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPurchase_tblSupplier" Association="Self.FK_tblPurchase_tblSupplier">
+      <End Role="tblSupplier" EntitySet="tblSupplier" />
+      <End Role="tblPurchase" EntitySet="tblPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStock_tblProduct" Association="Self.FK_tblStock_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblStock" EntitySet="tblStock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVehcle_tblCustomer" Association="Self.FK_tblVehcle_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblVehcle" EntitySet="tblVehcle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad257e68f37146b4959957dd22f6135b" Name="Diagram1" ZoomLevel="103">
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblCompanyInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblSupplier" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.Machine" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblBorrowSale" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblCustomer" Width="1.5" PointX="6.375" PointY="4.875" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblNetSale" Width="1.5" PointX="5.25" PointY="10.875" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblPayment" Width="1.5" PointX="10" PointY="6.5" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblVehcle" Width="1.5" PointX="10" PointY="9.375" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblNetSale_Machine" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblPayment_tblCustomer" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblVehcle_tblCustomer" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblProduct" Width="1.5" PointX="0.75" PointY="9.25" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_Machine_tblProduct" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblBorrowSale_tblCustomer" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblBorrowSale_tblProduct" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblNetSale_tblProduct" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblMachineReading" Width="1.5" PointX="5.25" PointY="15.125" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblPurchase" Width="1.5" PointX="8.625" PointY="2.125" />
+        <EntityTypeShape EntityType="PetrolPumpDBModel.tblStock" Width="1.5" PointX="3" PointY="17" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblMachineReading_Machine" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblPurchase_tblProduct" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblStock_tblProduct" />
+        <AssociationConnector Association="PetrolPumpDBModel.FK_tblPurchase_tblSupplier" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

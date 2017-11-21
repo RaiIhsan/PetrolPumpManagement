@@ -1,0 +1,65 @@
+﻿@model PetrolPumpSystem.Models.tblSupplier
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Delete supplier</h4>
+            <h4 style="float:right;margin-right:2em;">Total Suppliers: @Session["totalSuppliers"]</h4>
+
+        </div>
+    </div>
+</div>
+<br />
+
+<h3 class="subPageMargin">Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupName)
+        </dd>
+
+        <dt>
+            Mobile:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupMobile)
+        </dd>
+
+        <dt>
+            Phone:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupPhone)
+        </dd>
+
+        <dt>
+            Address:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupAddress)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color subPageMargin">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

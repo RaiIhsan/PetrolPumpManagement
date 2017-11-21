@@ -1,0 +1,42 @@
+﻿@model PetrolPumpSystem.Models.tblSupplier
+
+@{
+    ViewBag.Title = "Supplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Suppliers</h4>
+            <h4 style="float:right;margin-right:2em;">Total Suppliers: @Session["totalSuppliers"]</h4>
+        </div>
+    </div>
+</div>
+<input type="button" class="btn btn-warning btn-lg submenu" value="Add New" onclick="location.href='@Url.Action("Create", "Suppliers")'" />
+<input type="button" class="btn btn-warning btn-lg submenu" value="Manage Suppliers" onclick="location.href='@Url.Action("Index", "Suppliers")'" />
+
+
+<div class="row DashboardValues"> 
+    
+    @*<div class="submenu"><h4>@Html.ActionLink("Manage Suppliers", "Index", null, new { @class = "my-class" })</h4></div>
+    <div class="submenu"><h4>@Html.ActionLink("Add New", "Create", null, new { @class = "my-class" })</h4></div>*@
+    @*<div class="box3"><h4>Total Customer</h4></div>*@
+    @*<div class="box4"><h4>Total Income</h4></div>*@
+</div>
+@section Scripts{
+    
+<script type="text/javascript">
+
+    //$(".submenu").hover(function () {
+    //    $(this).animate({ opacity: '0.8' });
+    //}, function () {
+    //    $(this).animate({ opacity: '1' });
+    //    $(this).css('background-color', '#007303');
+    //    $(this).css('color', 'red');
+
+    //});
+    </script>
+    }
+
+

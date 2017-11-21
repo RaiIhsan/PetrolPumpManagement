@@ -1,0 +1,51 @@
+﻿@model PetrolPumpSystem.Models.tblMachineReading
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblMachineReading</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartReading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndingReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndingReading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Machine.MachineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Machine.MachineName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MReadingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

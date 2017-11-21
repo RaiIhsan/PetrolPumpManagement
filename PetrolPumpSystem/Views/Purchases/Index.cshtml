@@ -1,0 +1,86 @@
+﻿@model IEnumerable<PetrolPumpSystem.Models.tblPurchase>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SubPageHeader">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="float:left;">Prchases</h4>
+            <h4 style="float:right;margin-right:2em;">Total Fuels: @Session["totalfuels"]</h4>
+        </div>
+    </div>
+</div>
+<br />
+<p class="subPageMargin">
+    @*@Html.ActionLink("Add New", "Create")*@
+    <input type="button" class="btn btn-success" value="Add New" onclick="location.href='@Url.Action("Create", "Purchases")'" />
+
+</p>
+<div class="container table-responsive">
+    <table class="table table-responsive table-striped " id="myTable">
+        <thead>
+            <tr class="tblHeader">
+                <th>
+                    Supplier:
+                </th>
+                <th>
+                    Fuel
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Unit
+                </th>
+                <th>
+                    Rate:
+                </th>
+                <th>
+                    Truck No
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr class="tblbody">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblSupplier.SupName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblProduct.PName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TankerNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PurchId }, new { @class = "btn btn-primary btn-sm" })
+                        @*@Html.ActionLink("Details", "Details", new { id = item.PurchId }, new { @class = "btn btn-primary btn-sm" })*@ 
+                      
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    </div>

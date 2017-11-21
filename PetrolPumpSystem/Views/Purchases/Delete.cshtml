@@ -1,0 +1,81 @@
+﻿@model PetrolPumpSystem.Models.tblPurchase
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblPurchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TankerNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankerNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProduct.PName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProduct.PName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSupplier.SupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSupplier.SupName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

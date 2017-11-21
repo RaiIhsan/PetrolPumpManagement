@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Custom.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+<body>
+    @*<div class="log">
+        <img style="width:8em;height:5em; margin-left:2em;margin-top:-2em;float:left;" src="~/Images/pumplogo.png" alt="Logo" />
+        <h1>Oil Filling Staion</h1>
+    </div>*@
+    <div class="Navigation">
+        <nav class="navbar  Navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a style="color:white;font-weight:bold;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;padding-bottom:0px;" class="navbar-brand" href="#">Oil Filling Staion</a>
+                </div>
+                <ul style="float:right;" class="nav navbar-nav">
+                    <li class="account">
+                        <a class="glyphicon glyphicon-cog" href="#" style="background-color:rgb(70,130,180);">Account</a>
+                        <ul>
+                            <li><a href="#">Genral</a></li>
+                            <li><a href="#">password</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="MAIN">
+
+        <div class="row">
+            <div class=" col-sm-2 col-md-2 menu ">
+                <div class="panel-group" id="accordion">
+
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body xyz">
+                        <table class="table" id="abc">
+                            <tr>
+                                <td>
+                                    <span> <img src="~/Images/Home.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Dashboard","CompanyInfoes")">Dashboard</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/employee.jpg" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Supplier", "Suppliers")">Suppliers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/employee.jpg" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index", "Products")">Manage Fuels</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/employee.jpg" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index", "Purchases")">Purchase</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/employeecategories.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index","Stocks")">View Stock</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/customer.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index","Machines")">Machines</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/customer.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index","MachineReadings")">Machine Reading</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/customer.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index","SalesEntry")">Sales</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><img src="~/Images/customer.png" style="width:1.5em;height:1.5em;margin-right:1em;" /></span><a href="@Url.Action("Index","Suppliers")">Suppliers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
+                                    <span class="badge">42</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-file">
+                                    </span>Reports
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class=" col-sm-10 col-md-10 nonpading">
+                <div class="well">
+
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @RenderSection("Styles", required: false)
+
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+        $("#abc td").hover(function () {
+            $(this).css("background-color", "pink");
+        }, function () {
+            $(this).css("background-color", "whitesmoke");
+        });
+    </script>
+</body>
+</html>
